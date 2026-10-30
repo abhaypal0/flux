@@ -9,8 +9,8 @@ This repository contains the source code for our hackathon project.
 - Java Developer
 
 ## Technologies
--React
--Node.js
--Express.js
--MongoDB
--Java
+- React
+- Node.js
+- Express.js
+- MongoDB
+- Java
