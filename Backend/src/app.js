@@ -9,7 +9,7 @@ import productVariantRoutes from "./routes/productVariant.routes.js";
 import Authrouter from "./routes/auth.route.js";
 import GoogleAuthrouter from "./routes/googleAuth.routes.js";
 import quotationRoutes from "./routes/quotation.routes.js";
-
+import subscriptionRoutes from "./models/subscription.routes.js";
 const app = express();
 
 app.use(express.json());
@@ -37,7 +37,8 @@ app.use("/api/products", productRoutes);
 app.use("/api/product-variants", productVariantRoutes);
 app.use("/api/auth", Authrouter);
 app.use("/auth", GoogleAuthrouter);
-app.use("/", quotationRoutes);
+app.use("/quotation", quotationRoutes);
+app.use("/subscription", subscriptionRoutes);
 
 /* centralized error middleware */
 app.use(errorMiddleware);
