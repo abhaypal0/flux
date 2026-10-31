@@ -4,13 +4,10 @@ import morgan from "morgan";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import { errorMiddleware } from "./middlewares/error.middleware.js";
-<<<<<<< HEAD
 import productRoutes from "./routes/product.routes.js";
 import productVariantRoutes from "./routes/productVariant.routes.js";
-=======
 import Authrouter from "./routes/auth.route.js";
 import GoogleAuthrouter from "./routes/googleAuth.routes.js";
->>>>>>> 663860b9723e8825151c575cc828467d254e0f00
 
 const app = express();
 
@@ -35,13 +32,10 @@ app.get(["/health-check", "/heath-check"], (req, res) => {
 });
 
 /* Routes here*/
-<<<<<<< HEAD
 app.use("/api/products", productRoutes);
 app.use("/api/product-variants", productVariantRoutes);
-=======
 app.use("/api/auth", Authrouter);
 app.use("/auth", GoogleAuthrouter);
->>>>>>> 663860b9723e8825151c575cc828467d254e0f00
 
 /* centralized error middleware */
 app.use(errorMiddleware);

@@ -1,16 +1,10 @@
-
 import "dotenv/config";
 import http from "http";
-
 import app from "./src/app.js";
 import { connectToDb } from "./src/database/database.js";
 import { initSocket } from "./src/services/socket.service.js";
-<<<<<<< HEAD
-import http from "http";
-=======
 
 const PORT = process.env.PORT || 3000;
->>>>>>> 663860b9723e8825151c575cc828467d254e0f00
 
 const httpServer = http.createServer(app);
 
