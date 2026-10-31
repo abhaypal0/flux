@@ -13,10 +13,9 @@ const paymentSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
-      index: true, 
+      index: true,
     },
 
-    
     invoice: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Invoice",
@@ -24,7 +23,6 @@ const paymentSchema = new mongoose.Schema(
       index: true,
     },
 
-    
     paymentMethod: {
       type: String,
       enum: [
@@ -48,17 +46,15 @@ const paymentSchema = new mongoose.Schema(
     paymentDate: {
       type: Date,
       default: Date.now,
-      index: true, 
+      index: true,
     },
 
     transactionId: {
       type: String,
       trim: true,
       unique: true,
-      sparse: true, 
-      default: null,
+      sparse: true,
     },
-
 
     status: {
       type: String,
@@ -72,16 +68,25 @@ const paymentSchema = new mongoose.Schema(
       default: "",
     },
 
-   
     receivedBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       default: null,
     },
+    razorpayOrderId: {
+      type: String,
+      unique: true,
+      sparse: true,
+    },
+
+    razorpaySignature: {
+      type: String,
+      default: null,
+    },
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 

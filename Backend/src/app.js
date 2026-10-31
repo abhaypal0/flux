@@ -11,6 +11,7 @@ import GoogleAuthrouter from "./routes/googleAuth.routes.js";
 import quotationRoutes from "./routes/quotation.routes.js";
 import subscriptionRoutes from "./routes/subscription.routes.js";
 import invoiceRoutes from "./routes/invoice.routes.js";
+import paymentRoutes from "./routes/payment.routes.js";
 
 const app = express();
 
@@ -38,10 +39,11 @@ app.get(["/health-check", "/heath-check"], (req, res) => {
 app.use("/api/products", productRoutes);
 app.use("/api/product-variants", productVariantRoutes);
 app.use("/api/auth", Authrouter);
-app.use("/auth", GoogleAuthrouter);
-app.use("/quotation", quotationRoutes);
-app.use("/subscription", subscriptionRoutes);
-app.use("/invoice", invoiceRoutes);
+app.use("/api/auth/google", GoogleAuthrouter);
+app.use("/api/quotation", quotationRoutes);
+app.use("/api/subscription", subscriptionRoutes);
+app.use("/api/invoice", invoiceRoutes);
+app.use("/api/payments", paymentRoutes);
 
 /* centralized error middleware */
 app.use(errorMiddleware);
