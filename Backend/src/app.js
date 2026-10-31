@@ -3,6 +3,8 @@ import helmet from "helmet";
 import morgan from "morgan";
 import cors from "cors";
 import { errorMiddleware } from "./middlewares/error.middleware.js";
+import productRoutes from "./routes/product.routes.js";
+import productVariantRoutes from "./routes/productVariant.routes.js";
 
 const app = express();
 
@@ -25,8 +27,8 @@ app.get("/heath-check", (req, res) => {
 });
 
 /* Routes here*/
-
-
+app.use("/api/products", productRoutes);
+app.use("/api/product-variants", productVariantRoutes);
 
 /* centralized error middleware */
 app.use(errorMiddleware);

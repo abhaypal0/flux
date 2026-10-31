@@ -1,6 +1,6 @@
 import app from "./src/app.js";
 import { connectToDb } from "./src/database/database.js";
-import { initSocket } from "./src/sockets/server.socket.js";
+import { initSocket } from "./src/services/socket.service.js";
 import http from "http";
 
 const httpServer = http.createServer(app);
