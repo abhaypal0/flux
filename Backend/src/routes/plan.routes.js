@@ -9,16 +9,24 @@ import {
   deletePlan,
 } from "../controller/plan.controller.js";
 
-import { protect } from "../middleware/auth.middleware.js";
+import { authUser} from "../middlewares/auth.middleware.js";
+import authorizeRoles from "../middlewares/authorizeRoles.js";
 
-const router = express.Router();
+const planRouter = express.Router();
 
-router.use(protect);
+// All routes require login
+planRouter.use(authUser);
 
-router.post("/", createPlan);
-router.get("/", getAllPlans);
-router.get("/:id", getSinglePlan);
-router.put("/:id", updatePlan);
-router.delete("/:id", deletePlan);
+// Admin and Staff
+planRouter.post("/", authorizeRoles("admin", "staff"), createPlan);
 
-export default router;
+planRouter.put("/:id", authorizeRoles("admin", "staff"), updatePlan);
+
+// Only Admin
+planRouter.delete("/:id", authorizeRoles("admin"), deletePlan);
+
+// All logged-in users
+planRouter.get("/", getAllPlans);
+planRouter.get("/:id", getSinglePlan);
+
+export default planRouter;

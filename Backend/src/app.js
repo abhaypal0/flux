@@ -8,7 +8,9 @@ import productRoutes from "./routes/product.routes.js";
 import productVariantRoutes from "./routes/productVariant.routes.js";
 import Authrouter from "./routes/auth.route.js";
 import GoogleAuthrouter from "./routes/googleAuth.routes.js";
-
+import planRouter from "./routes/plan.routes.js";
+import taxRoutes from "./routes/tax.routes.js";
+import discountRoutes from "./routes/discount.routes.js";
 const app = express();
 
 app.use(express.json());
@@ -36,7 +38,9 @@ app.use("/api/products", productRoutes);
 app.use("/api/product-variants", productVariantRoutes);
 app.use("/api/auth", Authrouter);
 app.use("/auth", GoogleAuthrouter);
-
+app.use("/api/plans", planRouter);
+app.use("/api/taxes", taxRoutes);
+app.use("/api/discounts", discountRoutes);
 /* centralized error middleware */
 app.use(errorMiddleware);
 
