@@ -10,6 +10,7 @@ import Authrouter from "./routes/auth.route.js";
 import GoogleAuthrouter from "./routes/googleAuth.routes.js";
 import quotationRoutes from "./routes/quotation.routes.js";
 import subscriptionRoutes from "./routes/subscription.routes.js";
+import invoiceRoutes from "./routes/invoice.routes.js";
 
 const app = express();
 
@@ -40,6 +41,7 @@ app.use("/api/auth", Authrouter);
 app.use("/auth", GoogleAuthrouter);
 app.use("/quotation", quotationRoutes);
 app.use("/subscription", subscriptionRoutes);
+app.use("/invoice", invoiceRoutes);
 
 /* centralized error middleware */
 app.use(errorMiddleware);
