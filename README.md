@@ -9,10 +9,13 @@ Brightloop Software sells everything on subscription, but runs it on spreadsheet
 
       Before 	                                       After 
 Subscriptions in a spreadsheet	        Subscriptions with tracked status
-Renewals remembered by people	        Pause, resume, close and renew workflows
-Invoices typed by hand	                Invoices generated from subscriptions
-Payments matched from bank statements	Payments recorded against invoices
+Renewals remembered by people	              Pause, resume, close and renew workflows
+Invoices typed by hand	                    Invoices generated from subscriptions
+Payments matched from bank statements    	Payments recorded against invoices
 Quarterly manual reports	            Live finance dashboard
+
+
+
 ✨ Features
 🔐 Authentication: register, email verification, resend link, login, logout and Google sign-in
 📧 Email with Nodemailer: verification emails sent automatically on sign-up
