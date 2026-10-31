@@ -1,4 +1,3 @@
-
 import mongoose from "mongoose";
 
 const paymentSchema = new mongoose.Schema(
@@ -7,20 +6,25 @@ const paymentSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
+      index: true,
     },
 
     customer: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
+      index: true, 
     },
 
+    
     invoice: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Invoice",
       required: true,
+      index: true,
     },
 
+    
     paymentMethod: {
       type: String,
       enum: [
@@ -44,17 +48,23 @@ const paymentSchema = new mongoose.Schema(
     paymentDate: {
       type: Date,
       default: Date.now,
+      index: true, 
     },
 
     transactionId: {
       type: String,
+      trim: true,
+      unique: true,
+      sparse: true, 
       default: null,
     },
+
 
     status: {
       type: String,
       enum: ["pending", "completed", "failed", "refunded"],
-      default: "pending",
+      default: "completed",
+      index: true,
     },
 
     notes: {
@@ -62,6 +72,7 @@ const paymentSchema = new mongoose.Schema(
       default: "",
     },
 
+   
     receivedBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
@@ -72,6 +83,64 @@ const paymentSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
+
+paymentSchema.index({ status: 1, paymentDate: -1 });
+
+
+async function syncInvoicePaymentStatus(invoiceId) {
+  if (!invoiceId) return;
+
+  const Payment = mongoose.model("Payment");
+  const Invoice = mongoose.model("Invoice");
+
+  
+  const result = await Payment.aggregate([
+    {
+      $match: {
+        invoice: new mongoose.Types.ObjectId(invoiceId),
+        status: "completed",
+      },
+    },
+    {
+      $group: {
+        _id: "$invoice",
+        totalPaid: { $sum: "$amount" },
+      },
+    },
+  ]);
+
+  const totalPaid = result.length > 0 ? Number(result[0].totalPaid.toFixed(2)) : 0;
+
+  const invoice = await Invoice.findById(invoiceId);
+  if (invoice) {
+    invoice.paidAmount = totalPaid;
+  
+    await invoice.save();
+  }
+}
+
+
+paymentSchema.post("save", async function (doc, next) {
+  try {
+    await syncInvoicePaymentStatus(doc.invoice);
+    next();
+  } catch (error) {
+    next(error);
+  }
+});
+
+
+paymentSchema.post("findOneAndUpdate", async function (doc, next) {
+  try {
+    if (doc) {
+      await syncInvoicePaymentStatus(doc.invoice);
+    }
+    next();
+  } catch (error) {
+    next(error);
+  }
+});
 
 const paymentModel = mongoose.model("Payment", paymentSchema);
 
