@@ -12,18 +12,7 @@ Brightloop Software sells everything on subscription, but runs it on spreadsheet
 
 
 ✨ Features
-🔐 Authentication: register, email verification, resend link, login, logout and Google sign-in
-📧 Email with Nodemailer: verification emails sent automatically on sign-up
-🎬 Smooth UI with Motion: animated page transitions, modals, cards and list items
-👥 Role-based access: Admin, Staff and Customer each get their own menu and permissions
-📦 Products and variants: sales price, cost price, notes, and variants that add to the price (Brand: Odoo adds 560)
-🗓️ Plans: daily, weekly, monthly or yearly billing, minimum quantity, availability dates
-📝 Quotations and subscriptions: Draft, Quotation, Confirmed, Active, Closed, plus pause and resume
-🧾 Invoicing: generated from subscriptions with automatic tax; confirm, send and cancel
-🏷️ Discounts: fixed or percentage, with conditions, dates and usage limits (admin only)
-💳 Payments: recorded per invoice with method, amount, date and note
-📊 Finance dashboard: active subscriptions, revenue, amount owed and overdue invoices
-🙋 Customer portal: customers see only their own subscriptions and invoices
+<table> <thead> <tr> <th align="left" width="30%">Feature</th> <th align="left" width="70%">What it does</th> </tr> </thead> <tbody> <tr> <td>🔐 <b>Authentication</b></td> <td>Register, email verification, resend link, login, logout and Google sign-in</td> </tr> <tr> <td>📧 <b>Email (Nodemailer)</b></td> <td>Verification emails sent automatically on sign-up</td> </tr> <tr> <td>🎬 <b>Smooth UI (Motion)</b></td> <td>Animated page transitions, modals, cards and list items</td> </tr> <tr> <td>👥 <b>Role-based access</b></td> <td>Admin, Staff and Customer each get their own menu and permissions</td> </tr> <tr> <td>📦 <b>Products and variants</b></td> <td>Sales price, cost price, notes, and variants that add to the price (Brand: Odoo adds 560)</td> </tr> <tr> <td>🗓️ <b>Plans</b></td> <td>Daily, weekly, monthly or yearly billing, minimum quantity, availability dates</td> </tr> <tr> <td>📝 <b>Quotations and subscriptions</b></td> <td>Draft, Quotation, Confirmed, Active, Closed, plus pause and resume</td> </tr> <tr> <td>🧾 <b>Invoicing</b></td> <td>Generated from subscriptions with automatic tax; confirm, send and cancel</td> </tr> <tr> <td>🏷️ <b>Discounts</b></td> <td>Fixed or percentage, with conditions, dates and usage limits (admin only)</td> </tr> <tr> <td>💳 <b>Payments</b></td> <td>Recorded per invoice with method, amount, date and note</td> </tr> <tr> <td>📊 <b>Finance dashboard</b></td> <td>Active subscriptions, revenue, amount owed and overdue invoices</td> </tr> <tr> <td>🙋 <b>Customer portal</b></td> <td>Customers see only their own subscriptions and invoices</td> </tr> </tbody> </table>
 
 
 🛠️ Tech Stack
