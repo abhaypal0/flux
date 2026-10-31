@@ -8,7 +8,7 @@ import {
     login,
     getme,
     logout
-} from "../controller/auth.controller.js";
+} from "../controllers/auth.controller.js";
 
 import {authUser} from "../middlewares/auth.middleware.js"
 
