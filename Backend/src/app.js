@@ -8,10 +8,16 @@ import productRoutes from "./routes/product.routes.js";
 import productVariantRoutes from "./routes/productVariant.routes.js";
 import Authrouter from "./routes/auth.route.js";
 import GoogleAuthrouter from "./routes/googleAuth.routes.js";
+
+import planRouter from "./routes/plan.routes.js";
+import taxRoutes from "./routes/tax.routes.js";
+import discountRoutes from "./routes/discount.routes.js";
+
 import quotationRoutes from "./routes/quotation.routes.js";
 import subscriptionRoutes from "./routes/subscription.routes.js";
 import invoiceRoutes from "./routes/invoice.routes.js";
 import paymentRoutes from "./routes/payment.routes.js";
+
 
 const app = express();
 
@@ -44,6 +50,12 @@ app.use("/api/quotation", quotationRoutes);
 app.use("/api/subscription", subscriptionRoutes);
 app.use("/api/invoice", invoiceRoutes);
 app.use("/api/payments", paymentRoutes);
+app.use("/auth", GoogleAuthrouter);
+app.use("/api/plans", planRouter);
+app.use("/api/taxes", taxRoutes);
+app.use("/api/discounts", discountRoutes);
+
+
 
 /* centralized error middleware */
 app.use(errorMiddleware);
