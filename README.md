@@ -85,7 +85,7 @@ FRONTEND_URL=http://localhost:5173
 EMAIL_USER=<your-email-address>
 EMAIL_PASS=<app-password>
 
-# Google OAuth (optional)
+# Google OAuth 
 GOOGLE_CLIENT_ID=<id>
 GOOGLE_CLIENT_SECRET=<secret>
 
