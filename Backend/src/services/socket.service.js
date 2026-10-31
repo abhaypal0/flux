@@ -2,22 +2,32 @@ import { Server } from "socket.io";
 
 let io;
 
-export function initSocket(httpServer) {
+export const initSocket = (httpServer) => {
   io = new Server(httpServer, {
     cors: {
-      origin: "http://localhost:5173",
+      origin: process.env.FRONTEND_URL || "http://localhost:5173",
       credentials: true,
+      methods: ["GET", "POST"],
     },
   });
-  console.log("Socket.io server is running");
-  io.on("connection", (socket) => {
-    console.log("A user connected " + socket.id);
-  });
-}
 
-export function getIO() {
-  if (!io) {
-    throw new Error("Socket.io not initialized");
-  }
+  console.log("Socket.IO initialized successfully");
+
+  io.on("connection", (socket) => {
+    console.log("User connected:", socket.id);
+
+    socket.on("disconnect", (reason) => {
+      console.log("User disconnected:", socket.id, reason);
+    });
+  });
+
   return io;
-}
+};
+
+export const getIO = () => {
+  if (!io) {
+    throw new Error("Socket.IO not initialized");
+  }
+
+  return io;
+};
