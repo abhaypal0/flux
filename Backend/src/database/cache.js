@@ -1,7 +1,7 @@
 import Redis from "ioredis";
 import { config } from "../config/config.js";
 
-export const redis = new Redis({
+const redis = new Redis({
   port: config.REDIS_PORT,
   host: config.REDIS_HOST,
   password: config.REDIS_PASSWORD,
@@ -18,3 +18,5 @@ redis.on("error", (error) => {
 redis.on("close", () => {
   console.log("Redis connection closed");
 });
+
+export default redis;
