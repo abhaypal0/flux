@@ -7,12 +7,7 @@ One platform to run plans, subscriptions, invoices, payments and revenue reports
 
 Brightloop Software sells everything on subscription, but runs it on spreadsheets: renewals get missed, invoices are typed by hand and nobody knows the real recurring revenue. This project replaces all of that with one system, from setting up products to reporting revenue.
 
-      Before 	                                       After 
-Subscriptions in a spreadsheet	        Subscriptions with tracked status
-Renewals remembered by people	              Pause, resume, close and renew workflows
-Invoices typed by hand	                    Invoices generated from subscriptions
-Payments matched from bank statements    	Payments recorded against invoices
-Quarterly manual reports	            Live finance dashboard
+   <table> <thead> <tr> <th width="50%" align="left">❌ Before (manual)</th> <th width="50%" align="left">✅ After (this project)</th> </tr> </thead> <tbody> <tr> <td>Subscriptions in a spreadsheet</td> <td>Subscriptions with tracked status</td> </tr> <tr> <td>Renewals remembered by people</td> <td>Pause, resume, close and renew workflows</td> </tr> <tr> <td>Invoices typed by hand</td> <td>Invoices generated from subscriptions</td> </tr> <tr> <td>Payments matched from bank statements</td> <td>Payments recorded against invoices</td> </tr> <tr> <td>Quarterly manual reports</td> <td>Live finance dashboard</td> </tr> </tbody> </table>
 
 
 
