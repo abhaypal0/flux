@@ -1,4 +1,3 @@
-
 import planModel from "../models/plan.model.js";
 
 // CREATE PLAN
