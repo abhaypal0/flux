@@ -9,7 +9,7 @@ import productVariantRoutes from "./routes/productVariant.routes.js";
 import Authrouter from "./routes/auth.route.js";
 import GoogleAuthrouter from "./routes/googleAuth.routes.js";
 import quotationRoutes from "./routes/quotation.routes.js";
-import subscriptionRoutes from "./models/subscription.routes.js";
+import subscriptionRoutes from "./routes/subscription.routes.js";
 
 const app = express();
 
