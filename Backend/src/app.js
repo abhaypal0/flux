@@ -10,6 +10,7 @@ import Authrouter from "./routes/auth.route.js";
 import GoogleAuthrouter from "./routes/googleAuth.routes.js";
 import quotationRoutes from "./routes/quotation.routes.js";
 import subscriptionRoutes from "./models/subscription.routes.js";
+
 const app = express();
 
 app.use(express.json());
