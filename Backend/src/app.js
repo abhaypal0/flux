@@ -6,7 +6,7 @@ import cookieParser from "cookie-parser";
 import { errorMiddleware } from "./middlewares/error.middleware.js";
 import Authrouter from "./routes/auth.route.js";
 import GoogleAuthrouter from "./routes/googleAuth.routes.js";
-
+import planRoutes from "./routes/plan.routes.js";
 const app = express();
 
 app.use(express.json());
@@ -32,7 +32,7 @@ app.get(["/health-check", "/heath-check"], (req, res) => {
 /* Routes here*/
 app.use("/api/auth", Authrouter);
 app.use("/auth", GoogleAuthrouter);
-
+app.use("/api/plans", planRoutes);
 /* centralized error middleware */
 app.use(errorMiddleware);
 
